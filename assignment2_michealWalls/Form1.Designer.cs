@@ -1,4 +1,29 @@
-﻿namespace assignment2_michealWalls
+﻿/*
+ *      Form1.Designer.cs
+ *      
+ *      assignment2_michealWalls - "fun-with-c-sharp"
+ *      
+ *      Copyright 2013 Micheal Walls <michealpwalls@gmail.com>
+ *      
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *      You should have received a copy of the GNU General Public License
+ *      along with this program; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ *      MA 02110-1301, USA.
+ *      
+ *      
+ */
+
+namespace assignment2_michealWalls
 {
     partial class Form_MainWindow
     {
@@ -67,6 +92,24 @@
             this.button_tabControl_next3 = new System.Windows.Forms.Button();
             this.button_tabControl_back2 = new System.Windows.Forms.Button();
             this.tabPage_options = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label_options_surroundSystem_description = new System.Windows.Forms.Label();
+            this.label_options_iPod_price = new System.Windows.Forms.Label();
+            this.label_options_heatedSeats_price = new System.Windows.Forms.Label();
+            this.label_options_runningLights_price = new System.Windows.Forms.Label();
+            this.label_options_surroundSystem_price = new System.Windows.Forms.Label();
+            this.label_options_touchScreen_price = new System.Windows.Forms.Label();
+            this.label_options_bluetoothPackage_description = new System.Windows.Forms.Label();
+            this.checkBox_options_iPod = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkBox_options_heatedSeats = new System.Windows.Forms.CheckBox();
+            this.checkBox_options_runningLights = new System.Windows.Forms.CheckBox();
+            this.checkBox_options_surroundSystem = new System.Windows.Forms.CheckBox();
+            this.checkBox_options_touchScreen = new System.Windows.Forms.CheckBox();
+            this.checkBox_options_bluetoothPackage = new System.Windows.Forms.CheckBox();
+            this.label_options_price_centreConsole = new System.Windows.Forms.Label();
+            this.checkBox_options_centreConsole = new System.Windows.Forms.CheckBox();
             this.button_tabControl_next4 = new System.Windows.Forms.Button();
             this.button_tabControl_back3 = new System.Windows.Forms.Button();
             this.tabPage_totals = new System.Windows.Forms.TabPage();
@@ -87,11 +130,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_appTitle = new System.Windows.Forms.Label();
             this.label_appTagline = new System.Windows.Forms.Label();
-            this.checkBox_options_ = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl_mainFlowControl.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -206,6 +250,7 @@
             this.tabControl_mainFlowControl.SelectedIndex = 0;
             this.tabControl_mainFlowControl.Size = new System.Drawing.Size(295, 344);
             this.tabControl_mainFlowControl.TabIndex = 3;
+            this.tabControl_mainFlowControl.SelectedIndexChanged += new System.EventHandler(this.tabPage_totals_OnFocus);
             // 
             // tabPage_start
             // 
@@ -401,7 +446,6 @@
             this.label1.Size = new System.Drawing.Size(198, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "double 3-spoke alloy wheels, Fog Lamps";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label_appearance_packages_pureStyle
             // 
@@ -411,7 +455,6 @@
             this.label_appearance_packages_pureStyle.Size = new System.Drawing.Size(31, 13);
             this.label_appearance_packages_pureStyle.TabIndex = 2;
             this.label_appearance_packages_pureStyle.Text = "$800";
-            this.label_appearance_packages_pureStyle.Click += new System.EventHandler(this.label_appearance_packages_pureStyle_Click);
             // 
             // radioButton_appearance_packages_pureStyle
             // 
@@ -459,6 +502,12 @@
             // 
             // tabPage_accessories
             // 
+            this.tabPage_accessories.Controls.Add(this.label12);
+            this.tabPage_accessories.Controls.Add(this.label11);
+            this.tabPage_accessories.Controls.Add(this.label10);
+            this.tabPage_accessories.Controls.Add(this.label8);
+            this.tabPage_accessories.Controls.Add(this.label7);
+            this.tabPage_accessories.Controls.Add(this.label6);
             this.tabPage_accessories.Controls.Add(this.button_tabControl_next3);
             this.tabPage_accessories.Controls.Add(this.button_tabControl_back2);
             this.tabPage_accessories.Location = new System.Drawing.Point(4, 22);
@@ -491,11 +540,24 @@
             // 
             // tabPage_options
             // 
-            this.tabPage_options.Controls.Add(this.checkBox4);
-            this.tabPage_options.Controls.Add(this.checkBox3);
-            this.tabPage_options.Controls.Add(this.checkBox2);
+            this.tabPage_options.Controls.Add(this.label9);
+            this.tabPage_options.Controls.Add(this.label5);
+            this.tabPage_options.Controls.Add(this.label_options_surroundSystem_description);
+            this.tabPage_options.Controls.Add(this.label_options_iPod_price);
+            this.tabPage_options.Controls.Add(this.label_options_heatedSeats_price);
+            this.tabPage_options.Controls.Add(this.label_options_runningLights_price);
+            this.tabPage_options.Controls.Add(this.label_options_surroundSystem_price);
+            this.tabPage_options.Controls.Add(this.label_options_touchScreen_price);
+            this.tabPage_options.Controls.Add(this.label_options_bluetoothPackage_description);
+            this.tabPage_options.Controls.Add(this.checkBox_options_iPod);
             this.tabPage_options.Controls.Add(this.label4);
-            this.tabPage_options.Controls.Add(this.checkBox_options_);
+            this.tabPage_options.Controls.Add(this.checkBox_options_heatedSeats);
+            this.tabPage_options.Controls.Add(this.checkBox_options_runningLights);
+            this.tabPage_options.Controls.Add(this.checkBox_options_surroundSystem);
+            this.tabPage_options.Controls.Add(this.checkBox_options_touchScreen);
+            this.tabPage_options.Controls.Add(this.checkBox_options_bluetoothPackage);
+            this.tabPage_options.Controls.Add(this.label_options_price_centreConsole);
+            this.tabPage_options.Controls.Add(this.checkBox_options_centreConsole);
             this.tabPage_options.Controls.Add(this.button_tabControl_next4);
             this.tabPage_options.Controls.Add(this.button_tabControl_back3);
             this.tabPage_options.Location = new System.Drawing.Point(4, 22);
@@ -505,6 +567,182 @@
             this.tabPage_options.TabIndex = 3;
             this.tabPage_options.Text = "Options";
             this.tabPage_options.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(32, 164);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(152, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "subwoofer, 8x40 watt amplifier.";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(33, 146);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(222, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "rear-fill speakers, 2 tweeters in mirror triangles,";
+            // 
+            // label_options_surroundSystem_description
+            // 
+            this.label_options_surroundSystem_description.AutoSize = true;
+            this.label_options_surroundSystem_description.Location = new System.Drawing.Point(31, 127);
+            this.label_options_surroundSystem_description.Name = "label_options_surroundSystem_description";
+            this.label_options_surroundSystem_description.Size = new System.Drawing.Size(239, 13);
+            this.label_options_surroundSystem_description.TabIndex = 21;
+            this.label_options_surroundSystem_description.Text = "2 high performance in-door speakers, 2 additional";
+            // 
+            // label_options_iPod_price
+            // 
+            this.label_options_iPod_price.AutoSize = true;
+            this.label_options_iPod_price.Location = new System.Drawing.Point(229, 243);
+            this.label_options_iPod_price.Name = "label_options_iPod_price";
+            this.label_options_iPod_price.Size = new System.Drawing.Size(46, 13);
+            this.label_options_iPod_price.TabIndex = 20;
+            this.label_options_iPod_price.Text = "$175.00";
+            // 
+            // label_options_heatedSeats_price
+            // 
+            this.label_options_heatedSeats_price.AutoSize = true;
+            this.label_options_heatedSeats_price.Location = new System.Drawing.Point(229, 216);
+            this.label_options_heatedSeats_price.Name = "label_options_heatedSeats_price";
+            this.label_options_heatedSeats_price.Size = new System.Drawing.Size(46, 13);
+            this.label_options_heatedSeats_price.TabIndex = 19;
+            this.label_options_heatedSeats_price.Text = "$340.00";
+            // 
+            // label_options_runningLights_price
+            // 
+            this.label_options_runningLights_price.AutoSize = true;
+            this.label_options_runningLights_price.Location = new System.Drawing.Point(229, 188);
+            this.label_options_runningLights_price.Name = "label_options_runningLights_price";
+            this.label_options_runningLights_price.Size = new System.Drawing.Size(46, 13);
+            this.label_options_runningLights_price.TabIndex = 18;
+            this.label_options_runningLights_price.Text = "$290.00";
+            // 
+            // label_options_surroundSystem_price
+            // 
+            this.label_options_surroundSystem_price.AutoSize = true;
+            this.label_options_surroundSystem_price.Location = new System.Drawing.Point(235, 107);
+            this.label_options_surroundSystem_price.Name = "label_options_surroundSystem_price";
+            this.label_options_surroundSystem_price.Size = new System.Drawing.Size(46, 13);
+            this.label_options_surroundSystem_price.TabIndex = 17;
+            this.label_options_surroundSystem_price.Text = "$590.00";
+            // 
+            // label_options_touchScreen_price
+            // 
+            this.label_options_touchScreen_price.AutoSize = true;
+            this.label_options_touchScreen_price.Location = new System.Drawing.Point(226, 81);
+            this.label_options_touchScreen_price.Name = "label_options_touchScreen_price";
+            this.label_options_touchScreen_price.Size = new System.Drawing.Size(55, 13);
+            this.label_options_touchScreen_price.TabIndex = 16;
+            this.label_options_touchScreen_price.Text = "$1,295.00";
+            // 
+            // label_options_bluetoothPackage_description
+            // 
+            this.label_options_bluetoothPackage_description.AutoSize = true;
+            this.label_options_bluetoothPackage_description.Location = new System.Drawing.Point(28, 51);
+            this.label_options_bluetoothPackage_description.Name = "label_options_bluetoothPackage_description";
+            this.label_options_bluetoothPackage_description.Size = new System.Drawing.Size(243, 13);
+            this.label_options_bluetoothPackage_description.TabIndex = 15;
+            this.label_options_bluetoothPackage_description.Text = "Bluetooth module, cockpit clock and rev. counter.";
+            // 
+            // checkBox_options_iPod
+            // 
+            this.checkBox_options_iPod.AutoSize = true;
+            this.checkBox_options_iPod.Location = new System.Drawing.Point(7, 243);
+            this.checkBox_options_iPod.Name = "checkBox_options_iPod";
+            this.checkBox_options_iPod.Size = new System.Drawing.Size(199, 17);
+            this.checkBox_options_iPod.TabIndex = 14;
+            this.checkBox_options_iPod.Text = "iPod integration for Bluetooth System";
+            this.checkBox_options_iPod.UseVisualStyleBackColor = true;
+            this.checkBox_options_iPod.CheckedChanged += new System.EventHandler(this.checkBox_options_iPod_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(235, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "$450.00";
+            // 
+            // checkBox_options_heatedSeats
+            // 
+            this.checkBox_options_heatedSeats.AutoSize = true;
+            this.checkBox_options_heatedSeats.Location = new System.Drawing.Point(7, 216);
+            this.checkBox_options_heatedSeats.Name = "checkBox_options_heatedSeats";
+            this.checkBox_options_heatedSeats.Size = new System.Drawing.Size(91, 17);
+            this.checkBox_options_heatedSeats.TabIndex = 12;
+            this.checkBox_options_heatedSeats.Text = "Heated Seats";
+            this.checkBox_options_heatedSeats.UseVisualStyleBackColor = true;
+            this.checkBox_options_heatedSeats.CheckedChanged += new System.EventHandler(this.checkBox_options_heatedSeats_CheckedChanged);
+            // 
+            // checkBox_options_runningLights
+            // 
+            this.checkBox_options_runningLights.AutoSize = true;
+            this.checkBox_options_runningLights.Location = new System.Drawing.Point(7, 188);
+            this.checkBox_options_runningLights.Name = "checkBox_options_runningLights";
+            this.checkBox_options_runningLights.Size = new System.Drawing.Size(162, 17);
+            this.checkBox_options_runningLights.TabIndex = 11;
+            this.checkBox_options_runningLights.Text = "LED Daytime Running Lights";
+            this.checkBox_options_runningLights.UseVisualStyleBackColor = true;
+            this.checkBox_options_runningLights.CheckedChanged += new System.EventHandler(this.checkBox_options_runningLights_CheckedChanged);
+            // 
+            // checkBox_options_surroundSystem
+            // 
+            this.checkBox_options_surroundSystem.AutoSize = true;
+            this.checkBox_options_surroundSystem.Location = new System.Drawing.Point(7, 107);
+            this.checkBox_options_surroundSystem.Name = "checkBox_options_surroundSystem";
+            this.checkBox_options_surroundSystem.Size = new System.Drawing.Size(170, 17);
+            this.checkBox_options_surroundSystem.TabIndex = 10;
+            this.checkBox_options_surroundSystem.Text = "Smart Surround-Sound System";
+            this.checkBox_options_surroundSystem.UseVisualStyleBackColor = true;
+            this.checkBox_options_surroundSystem.CheckedChanged += new System.EventHandler(this.checkBox_options_surroundSystem_CheckedChanged);
+            // 
+            // checkBox_options_touchScreen
+            // 
+            this.checkBox_options_touchScreen.AutoSize = true;
+            this.checkBox_options_touchScreen.Location = new System.Drawing.Point(7, 80);
+            this.checkBox_options_touchScreen.Name = "checkBox_options_touchScreen";
+            this.checkBox_options_touchScreen.Size = new System.Drawing.Size(179, 17);
+            this.checkBox_options_touchScreen.TabIndex = 9;
+            this.checkBox_options_touchScreen.Text = "Touchscreen Multimedia System";
+            this.checkBox_options_touchScreen.UseVisualStyleBackColor = true;
+            this.checkBox_options_touchScreen.CheckedChanged += new System.EventHandler(this.checkBox_options_touchScreen_CheckedChanged);
+            // 
+            // checkBox_options_bluetoothPackage
+            // 
+            this.checkBox_options_bluetoothPackage.AutoSize = true;
+            this.checkBox_options_bluetoothPackage.Location = new System.Drawing.Point(7, 31);
+            this.checkBox_options_bluetoothPackage.Name = "checkBox_options_bluetoothPackage";
+            this.checkBox_options_bluetoothPackage.Size = new System.Drawing.Size(117, 17);
+            this.checkBox_options_bluetoothPackage.TabIndex = 8;
+            this.checkBox_options_bluetoothPackage.Text = "Bluetooth Package";
+            this.checkBox_options_bluetoothPackage.UseVisualStyleBackColor = true;
+            this.checkBox_options_bluetoothPackage.CheckedChanged += new System.EventHandler(this.checkBox_options_bluetoothPackage_CheckedChanged);
+            // 
+            // label_options_price_centreConsole
+            // 
+            this.label_options_price_centreConsole.AutoSize = true;
+            this.label_options_price_centreConsole.Location = new System.Drawing.Point(235, 7);
+            this.label_options_price_centreConsole.Name = "label_options_price_centreConsole";
+            this.label_options_price_centreConsole.Size = new System.Drawing.Size(46, 13);
+            this.label_options_price_centreConsole.TabIndex = 7;
+            this.label_options_price_centreConsole.Text = "$340.00";
+            // 
+            // checkBox_options_centreConsole
+            // 
+            this.checkBox_options_centreConsole.AutoSize = true;
+            this.checkBox_options_centreConsole.Location = new System.Drawing.Point(7, 7);
+            this.checkBox_options_centreConsole.Name = "checkBox_options_centreConsole";
+            this.checkBox_options_centreConsole.Size = new System.Drawing.Size(159, 17);
+            this.checkBox_options_centreConsole.TabIndex = 6;
+            this.checkBox_options_centreConsole.Text = "Centre Console Storage Box";
+            this.checkBox_options_centreConsole.UseVisualStyleBackColor = true;
+            this.checkBox_options_centreConsole.CheckedChanged += new System.EventHandler(this.checkBox_options_centreConsole_CheckedChanged);
             // 
             // button_tabControl_next4
             // 
@@ -612,32 +850,32 @@
             // 
             this.stripMenu_edit_clear.Name = "stripMenu_edit_clear";
             this.stripMenu_edit_clear.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Delete)));
-            this.stripMenu_edit_clear.Size = new System.Drawing.Size(161, 22);
-            this.stripMenu_edit_clear.Text = "Clear";
+            this.stripMenu_edit_clear.Size = new System.Drawing.Size(179, 22);
+            this.stripMenu_edit_clear.Text = "Clear...";
             this.stripMenu_edit_clear.Click += new System.EventHandler(this.stripMenu_edit_clear_Click);
             // 
             // stripMenu_edit_calculate
             // 
             this.stripMenu_edit_calculate.Name = "stripMenu_edit_calculate";
             this.stripMenu_edit_calculate.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-            this.stripMenu_edit_calculate.Size = new System.Drawing.Size(161, 22);
-            this.stripMenu_edit_calculate.Text = "Calculate";
+            this.stripMenu_edit_calculate.Size = new System.Drawing.Size(179, 22);
+            this.stripMenu_edit_calculate.Text = "Calculate...";
             this.stripMenu_edit_calculate.Click += new System.EventHandler(this.stripMenu_edit_calculate_Click);
             // 
             // stripMenu_edit_colour
             // 
             this.stripMenu_edit_colour.Name = "stripMenu_edit_colour";
             this.stripMenu_edit_colour.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.stripMenu_edit_colour.Size = new System.Drawing.Size(161, 22);
-            this.stripMenu_edit_colour.Text = "Edit Colour";
+            this.stripMenu_edit_colour.Size = new System.Drawing.Size(179, 22);
+            this.stripMenu_edit_colour.Text = "Edit Font Colour";
             this.stripMenu_edit_colour.Click += new System.EventHandler(this.stripMenu_edit_colour_Click);
             // 
             // stripMenu_edit_font
             // 
             this.stripMenu_edit_font.Name = "stripMenu_edit_font";
             this.stripMenu_edit_font.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.stripMenu_edit_font.Size = new System.Drawing.Size(161, 22);
-            this.stripMenu_edit_font.Text = "Edit Font";
+            this.stripMenu_edit_font.Size = new System.Drawing.Size(179, 22);
+            this.stripMenu_edit_font.Text = "Edit Font Style";
             this.stripMenu_edit_font.Click += new System.EventHandler(this.stripMenu_edit_font_Click);
             // 
             // stripMenu_help
@@ -693,54 +931,59 @@
             this.label_appTagline.TabIndex = 19;
             this.label_appTagline.Text = "Design your own Smart Car!";
             // 
-            // checkBox_options_
+            // label6
             // 
-            this.checkBox_options_.AutoSize = true;
-            this.checkBox_options_.Location = new System.Drawing.Point(7, 7);
-            this.checkBox_options_.Name = "checkBox_options_";
-            this.checkBox_options_.Size = new System.Drawing.Size(80, 17);
-            this.checkBox_options_.TabIndex = 6;
-            this.checkBox_options_.Text = "checkBox1";
-            this.checkBox_options_.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "label6";
             // 
-            // label4
+            // label7
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(246, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "label4";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "label7";
             // 
-            // checkBox2
+            // label8
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(7, 31);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 8;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 71);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "label8";
             // 
-            // checkBox3
+            // label10
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(7, 55);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 9;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(240, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "label10";
             // 
-            // checkBox4
+            // label11
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(7, 79);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(80, 17);
-            this.checkBox4.TabIndex = 10;
-            this.checkBox4.Text = "checkBox4";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(240, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "label11";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(240, 71);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "label12";
             // 
             // Form_MainWindow
             // 
@@ -765,6 +1008,7 @@
             this.groupBox_appearance_packages.ResumeLayout(false);
             this.groupBox_appearance_packages.PerformLayout();
             this.tabPage_accessories.ResumeLayout(false);
+            this.tabPage_accessories.PerformLayout();
             this.tabPage_options.ResumeLayout(false);
             this.tabPage_options.PerformLayout();
             this.tabPage_totals.ResumeLayout(false);
@@ -837,11 +1081,30 @@
         private System.Windows.Forms.RadioButton radioButton_appearance_packages_none;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox_options_surroundSystem;
+        private System.Windows.Forms.CheckBox checkBox_options_touchScreen;
+        private System.Windows.Forms.CheckBox checkBox_options_bluetoothPackage;
+        private System.Windows.Forms.Label label_options_price_centreConsole;
+        private System.Windows.Forms.CheckBox checkBox_options_centreConsole;
+        private System.Windows.Forms.CheckBox checkBox_options_heatedSeats;
+        private System.Windows.Forms.CheckBox checkBox_options_runningLights;
+        private System.Windows.Forms.Label label_options_bluetoothPackage_description;
+        private System.Windows.Forms.CheckBox checkBox_options_iPod;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox_options_;
+        private System.Windows.Forms.Label label_options_touchScreen_price;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_options_surroundSystem_description;
+        private System.Windows.Forms.Label label_options_iPod_price;
+        private System.Windows.Forms.Label label_options_heatedSeats_price;
+        private System.Windows.Forms.Label label_options_runningLights_price;
+        private System.Windows.Forms.Label label_options_surroundSystem_price;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
 
