@@ -1,7 +1,9 @@
 ﻿/*
- *      Form2.Designer.cs
+ *      Form2.Designer.cs    - v0.1
  *      
  *      assignment2_michealWalls - "fun-with-c-sharp"
+ *      
+ *      Simple Smart Car designer and price calculator
  *      
  *      Copyright 2013 Micheal Walls <michealpwalls@gmail.com>
  *      

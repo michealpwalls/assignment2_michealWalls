@@ -1,7 +1,9 @@
 ﻿/*
- *      Form1.cs
+ *      Form1.cs    - v0.1
  *      
  *      assignment2_michealWalls - "fun-with-c-sharp"
+ *      
+ *      Simple Smart Car designer and price calculator
  *      
  *      Copyright 2013 Micheal Walls <michealpwalls@gmail.com>
  *      
@@ -39,10 +41,7 @@ namespace assignment2_michealWalls {
         //Instance variables
         private Color chosenColor;
         private Font chosenFont;
-        private Double accessoriesTotal;
-        private Double optionsTotal;
-        private Double appearanceTotal;
-        private Double salesTax;
+        private Double accessoriesTotal, optionsTotal, appearanceTotal, salesTax;
 
         public Form_MainWindow() {
             InitializeComponent();
@@ -119,57 +118,43 @@ namespace assignment2_michealWalls {
         }
 
         /**
-         * Calculate entry-point (Menu)
+         * Shared Event Handler for the Calculate actions
          */
-        private void stripMenu_edit_calculate_Click(object sender, EventArgs e) {
-            calculateTotals();
+        private void calculateTotals_sharedHandler(object sender, EventArgs e) {
             tabControl_mainFlowControl.SelectedTab = tabPage_totals;
-        }// end of stripMenu_edit_calculate_Click method
+        }// end of calculateTotals_sharedHandler method
 
         /**
-         * Calculate entry-point (Next/Calculate tab button)
-         */
-        private void button_tabControl_next4_Click(object sender, EventArgs e) {
-            calculateTotals();
-            tabControl_mainFlowControl.SelectedTab = tabPage_totals;
-        }// end of button_tabControl_next4_Click method
-
-        /**
-         * Calculate entry-point (totals tab OnFocus)
+         * Event Handler for totals tab (OnFocus event)
          */
         private void tabPage_totals_OnFocus(object sender, EventArgs e) {
-            //If the currently selected tab is the Totals tab, call the calculateTotals method
+            // If the currently selected tab is the Totals tab, call the calculateTotals method
             if (tabControl_mainFlowControl.SelectedTab == tabPage_totals) {
                 calculateTotals();
             }
         }// end of tabPage_totals_OnFocus method
 
-        /*************************************************
-         * Event handlers for the Clear button/menu item *
-         *************************************************/
-        private void stripMenu_edit_clear_Click(object sender, EventArgs e) {
-            clearInputFields();
-        }// end of stripMenu_edit_clear_Click method
-
-        private void button_clearInput1_Click(object sender, EventArgs e) {
-            clearInputFields();
-        }// end of button_clearInput1_Click method
-
-        private void button_clearInput2_Click(object sender, EventArgs e) {
-            clearInputFields();
-        }// end of button_clearInput2_Click method
-
         /**
-         * This method will reset all TextBox controls to their empty defaults
+         * Shared Event handler for the Clear actions
          */
-        private void clearInputFields() {
-            textBox_additionalOptions.Text = "$0";
-            textBox_amountDue.Text = "$0";
-            textBox_basePrice.Text = "$0";
-            textBox_salesTax.Text = "$0";
-            textBox_subTotal.Text = "$0";
-            textBox_total.Text = "$0";
-            textBox_tradeInAllowance.Text = "$0";
+        private void clearInputFields(object sender, EventArgs e) {
+            // Base Price and Trade-In Inputs
+            textBox_additionalOptions.Text = textBox_amountDue.Text = textBox_basePrice.Text = "$0";
+            textBox_salesTax.Text = textBox_subTotal.Text = textBox_total.Text = textBox_tradeInAllowance.Text = "$0";
+
+            // Accessories Inputs
+            checkBox_accessories_chromePackage.Checked = checkBox_accessories_frontSpoiler.Checked = checkBox_accessories_rearApron.Checked = false;
+            checkBox_accessories_rearRack.Checked = checkBox_accessories_roofSpoiler.Checked = checkBox_accessories_sideSkirts.Checked = checkBox_accessories_sportExhaust.Checked = false;
+
+            // Options Inputs
+            checkBox_options_bluetoothPackage.Checked = checkBox_options_centreConsole.Checked = checkBox_options_heatedSeats.Checked = false;
+            checkBox_options_iPod.Checked = checkBox_options_runningLights.Checked = checkBox_options_surroundSystem.Checked = checkBox_options_touchScreen.Checked = false;
+
+            // Appearance Input
+            radioButton_appearance_packages_none.Checked = true;
+
+            // Reset the appearanceTotal
+            appearanceTotal = 0;
         }// end of clearInputFields method
 
         /**********************************************
@@ -184,15 +169,11 @@ namespace assignment2_michealWalls {
         }// end of radioButton_appearance_packages_none_Click method
 
         /**
-         * 
+         * This method calculates the Sales Tax and puts the value in the Sales Tax TextBox
          */
         private void calculateSalesTax(Double totalContainer) {
-            try {
-                salesTax = totalContainer * 0.13;
-                textBox_salesTax.Text = "$" + Convert.ToString(salesTax);
-            } catch (FormatException) {
-                textBox_salesTax.Text = textBox_total.Text = textBox_amountDue.Text = textBox_subTotal.Text = "Invalid Inputs!";
-            }// end of try-catch block
+            salesTax = totalContainer * 0.13;
+            textBox_salesTax.Text = "$" + Convert.ToString(salesTax);
         }// end of calculateSalesTax method
 
         /**
@@ -200,42 +181,64 @@ namespace assignment2_michealWalls {
          * subtract trade-in allowance and apply the sales tax
          */
         private void calculateTotals() {
+            // Calculation variables
+            Double basePrice, additionalOptions, subTotal, total, tradeInAllowance;
+            // State of the Calculation
+            Boolean calculationState = true;
+
             //The first step is to strip all the dollar-signs and commas from the input fields
             textBox_basePrice.Text = textBox_basePrice.Text.Replace("$", "");
             textBox_tradeInAllowance.Text = textBox_tradeInAllowance.Text.Replace("$", "");
             textBox_basePrice.Text = textBox_basePrice.Text.Replace(",", "");
             textBox_tradeInAllowance.Text = textBox_tradeInAllowance.Text.Replace(",", "");
 
-            //The third step is to SUM all the relevant input fields and subtract the trade in allowance
-            Double totalContainer;
+            // Calculate the Additional Options and set the value in the TextBox
+            additionalOptions = appearanceTotal + optionsTotal + accessoriesTotal;
+            textBox_additionalOptions.Text = "$" + Convert.ToString(additionalOptions);
+
+            // Get the user's input in a try-catch block
             try {
-                totalContainer = (Convert.ToDouble(textBox_basePrice.Text)
-                                + appearanceTotal
-                                + optionsTotal
-                                + accessoriesTotal)
-                                - Convert.ToDouble(textBox_tradeInAllowance.Text);
+                // Get the Base Price
+                basePrice = Convert.ToDouble(textBox_basePrice.Text);
+                
+                //Calculate the subTotal
+                subTotal = (basePrice + additionalOptions);
+
+                // Get the trade-in allowance
+                tradeInAllowance = Convert.ToDouble(textBox_tradeInAllowance.Text);
             } catch(FormatException) {
-                totalContainer = 0;
-                textBox_subTotal.Text = textBox_total.Text = textBox_amountDue.Text = textBox_salesTax.Text = "Invalid Inputs!";
+                subTotal = 0;
+                tradeInAllowance = 0;
+                basePrice = 0;
+                calculationState = false;
             }// end of try-catch block
+            
+            // Calculate the Sales Tax and populate the salesTax variable
+            calculateSalesTax(subTotal);
 
-            try {
-                textBox_subTotal.Text = "$" + Convert.ToString(totalContainer);
-            } catch (FormatException) {
-                textBox_subTotal.Text = textBox_total.Text = textBox_amountDue.Text = textBox_salesTax.Text = "Invalid Inputs!";
-            }// end of try-catch block
+            // Calculated the total and update the TextBox
+            total = subTotal + salesTax;
 
-            calculateSalesTax(totalContainer);
+            // Control output based on calculationState variable
+            if (!calculationState) {
+                textBox_subTotal.Text = textBox_total.Text = textBox_amountDue.Text = textBox_additionalOptions.Text = textBox_salesTax.Text = "Invalid Inputs!";
+            } else {
+                // Update the TextBox fields
+                textBox_subTotal.Text = "$" + Convert.ToString(subTotal);
+                textBox_total.Text = "$" + Convert.ToString(total);
+                textBox_amountDue.Text = "$" + Convert.ToString(total - tradeInAllowance);
+            }// end of if
 
-            // Update the amountDue TextBox with the tradeInAllowance (For reference, I guess?)
-            textBox_amountDue.Text = textBox_tradeInAllowance.Text;
-
-            // Update the total TextBox with the additional salesTax and tradeIn discounted
-            try {
-                textBox_total.Text = "$" + Convert.ToString(totalContainer + salesTax);
-            } catch (FormatException) {
-                textBox_total.Text = textBox_salesTax.Text = textBox_amountDue.Text = textBox_subTotal.Text = "Invalid Inputs!";
-            }// end of try-catch block
+            // Set the picture in the Total tab to reflect the picture they chose on the first tab
+            if( basePrice == 24000 ) {
+                pictureBox_total.Image = pictureBox2.Image;
+                pictureBox_total.Width = 116;
+                pictureBox_total.Height = 71;
+            } else {
+                pictureBox_total.Image = pictureBox3.Image;
+                pictureBox_total.Width = 100;
+                pictureBox_total.Height = 71;
+            }// end of if..else
         }// end of calculateTotals method
 
         /***********************************************
@@ -257,7 +260,7 @@ namespace assignment2_michealWalls {
                 optionsTotal += 340.00;
             } else {
                 optionsTotal -= 340.00;
-            }
+            }// end of if..else
         }// end of checkBox_options_heatedSeats_CheckedChanged method
 
         private void checkBox_options_centreConsole_CheckedChanged(object sender, EventArgs e) {
@@ -265,7 +268,7 @@ namespace assignment2_michealWalls {
                 optionsTotal += 340.00;
             } else {
                 optionsTotal -= 340.00;
-            }// end of mutually exclusive if..else
+            }// end of if..else
         }// end of checkBox_options_centreConsole_CheckedChanged method
 
         private void checkBox_options_touchScreen_CheckedChanged(object sender, EventArgs e) {
@@ -273,7 +276,7 @@ namespace assignment2_michealWalls {
                 optionsTotal += 1295.00;
             } else {
                 optionsTotal -= 1295.00;
-            }// end of mutually exclusive if..else
+            }// end of if..else
         }// end of checkBox_options_touchScreen_CheckedChanged method
 
         private void checkBox_options_surroundSystem_CheckedChanged(object sender, EventArgs e) {
@@ -281,7 +284,7 @@ namespace assignment2_michealWalls {
                 optionsTotal += 590.00;
             } else {
                 optionsTotal -= 590.00;
-            }// end of mutually exclusive if..else
+            }// end of if..else
         }// end of checkBox_options_surroundSystem_CheckedChanged method
 
         private void checkBox_options_runningLights_CheckedChanged(object sender, EventArgs e) {
@@ -289,7 +292,7 @@ namespace assignment2_michealWalls {
                 optionsTotal += 290.00;
             } else {
                 optionsTotal -= 290.00;
-            }// end of mutually exclusive if..else
+            }// end of if..else
         }// end of checkBox_options_runningLights_CheckedChanged method
 
         private void checkBox_options_iPod_CheckedChanged(object sender, EventArgs e) {
@@ -297,7 +300,7 @@ namespace assignment2_michealWalls {
                 optionsTotal += 175.00;
             } else {
                 optionsTotal -= 175.00;
-            }// end of mutually exclusive if..else
+            }// end of if..else
         }// end of checkBox_options_iPod_CheckedChanged method
 
         private void checkBox_options_bluetoothPackage_CheckedChanged(object sender, EventArgs e) {
@@ -305,8 +308,67 @@ namespace assignment2_michealWalls {
                 optionsTotal += 450.00;
             } else {
                 optionsTotal -= 450.00;
-            }// end of mutually exclusive if..else
+            }// end of if..else
         }// end of checkBox_options_bluetoothPackage_CheckedChanged method
+
+        /****************************************
+         * Event Handlers for Accessories panel *
+         ****************************************/
+        private void checkBox_accessories_rearRack_CheckedChanged(object sender, EventArgs e) {
+            if (checkBox_accessories_rearRack.Checked) {
+                accessoriesTotal += 425.00;
+            } else {
+                accessoriesTotal -= 425.00;
+            }// end of if..else
+        }// end of checkBox_accessories_rearRack_CheckedChanged method
+
+        private void checkBox_accessories_roofSpoiler_CheckedChanged(object sender, EventArgs e) {
+            if (checkBox_accessories_roofSpoiler.Checked) {
+                accessoriesTotal += 375.00;
+            } else {
+                accessoriesTotal -= 375.00;
+            }// end of if..else
+        }// end of checkBox_accessories_roofSpoiler_CheckedChanged method
+
+        private void checkBox_accessories_sportExhaust_CheckedChanged(object sender, EventArgs e) {
+            if (checkBox_accessories_sportExhaust.Checked) {
+                accessoriesTotal += 1130.00;
+            } else {
+                accessoriesTotal -= 1130.00;
+            }// end of if..else
+        }// end of checkBox_accessories_sportExhaust_CheckedChanged method
+
+        private void checkBox_accessories_rearApron_CheckedChanged(object sender, EventArgs e) {
+            if (checkBox_accessories_rearApron.Checked) {
+                accessoriesTotal += 565.00;
+            } else {
+                accessoriesTotal -= 565.00;
+            }// end of if..else
+        }// end of checkBox_accessories_rearApron_CheckedChanged method
+
+        private void checkBox_accessories_frontSpoiler_CheckedChanged(object sender, EventArgs e) {
+            if (checkBox_accessories_frontSpoiler.Checked) {
+                accessoriesTotal += 470.00;
+            } else {
+                accessoriesTotal -= 470.00;
+            }// end of if..else
+        }// end of checkBox_accessories_frontSpoiler_CheckedChanged method
+
+        private void checkBox_accessories_chromePackage_CheckedChanged(object sender, EventArgs e) {
+            if (checkBox_accessories_chromePackage.Checked) {
+                accessoriesTotal += 435.00;
+            } else {
+                accessoriesTotal -= 435.00;
+            }// end of if..else
+        }// end of checkBox_accessories_chromePackage_CheckedChanged method
+
+        private void checkBox_accessories_sideSkirts_CheckedChanged(object sender, EventArgs e) {
+            if (checkBox_accessories_sideSkirts.Checked) {
+                accessoriesTotal += 750.00;
+            } else {
+                accessoriesTotal -= 750.00;
+            }// end of if..else
+        }// end of checkBox_accessories_sideSkirts_CheckedChanged method
 
     }// end of Form_MainWindow Class
 

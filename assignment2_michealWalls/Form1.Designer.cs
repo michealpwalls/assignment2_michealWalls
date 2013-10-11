@@ -1,7 +1,9 @@
 ﻿/*
- *      Form1.Designer.cs
+ *      Form1.Designer.cs    - v0.1
  *      
  *      assignment2_michealWalls - "fun-with-c-sharp"
+  *      
+ *      Simple Smart Car designer and price calculator
  *      
  *      Copyright 2013 Micheal Walls <michealpwalls@gmail.com>
  *      
@@ -89,6 +91,21 @@ namespace assignment2_michealWalls
             this.button_tabControl_next2 = new System.Windows.Forms.Button();
             this.button_tabControl_back1 = new System.Windows.Forms.Button();
             this.tabPage_accessories = new System.Windows.Forms.TabPage();
+            this.label_accessories_sideSkirts_price = new System.Windows.Forms.Label();
+            this.label_accessories_chromePackage_price = new System.Windows.Forms.Label();
+            this.label_accessories_chromePackage_description = new System.Windows.Forms.Label();
+            this.label_accessories_frontSpoiler_price = new System.Windows.Forms.Label();
+            this.label_accessories_rearApron_price = new System.Windows.Forms.Label();
+            this.checkBox_accessories_sideSkirts = new System.Windows.Forms.CheckBox();
+            this.checkBox_accessories_chromePackage = new System.Windows.Forms.CheckBox();
+            this.checkBox_accessories_frontSpoiler = new System.Windows.Forms.CheckBox();
+            this.checkBox_accessories_rearApron = new System.Windows.Forms.CheckBox();
+            this.checkBox_accessories_sportExhaust = new System.Windows.Forms.CheckBox();
+            this.checkBox_accessories_roofSpoiler = new System.Windows.Forms.CheckBox();
+            this.checkBox_accessories_rearRack = new System.Windows.Forms.CheckBox();
+            this.label_accessories_sportExhaust_price = new System.Windows.Forms.Label();
+            this.label_accessories_roofSpoiler_price = new System.Windows.Forms.Label();
+            this.label_accessories_rackPrice = new System.Windows.Forms.Label();
             this.button_tabControl_next3 = new System.Windows.Forms.Button();
             this.button_tabControl_back2 = new System.Windows.Forms.Button();
             this.tabPage_options = new System.Windows.Forms.TabPage();
@@ -113,6 +130,7 @@ namespace assignment2_michealWalls
             this.button_tabControl_next4 = new System.Windows.Forms.Button();
             this.button_tabControl_back3 = new System.Windows.Forms.Button();
             this.tabPage_totals = new System.Windows.Forms.TabPage();
+            this.pictureBox_total = new System.Windows.Forms.PictureBox();
             this.button_clearInput2 = new System.Windows.Forms.Button();
             this.button_tabControl_back4 = new System.Windows.Forms.Button();
             this.stripMenu = new System.Windows.Forms.MenuStrip();
@@ -130,12 +148,6 @@ namespace assignment2_michealWalls
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_appTitle = new System.Windows.Forms.Label();
             this.label_appTagline = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabControl_mainFlowControl.SuspendLayout();
             this.tabPage_start.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -145,6 +157,7 @@ namespace assignment2_michealWalls
             this.tabPage_accessories.SuspendLayout();
             this.tabPage_options.SuspendLayout();
             this.tabPage_totals.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_total)).BeginInit();
             this.stripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -156,6 +169,7 @@ namespace assignment2_michealWalls
             this.textBox_additionalOptions.ReadOnly = true;
             this.textBox_additionalOptions.Size = new System.Drawing.Size(100, 20);
             this.textBox_additionalOptions.TabIndex = 4;
+            this.textBox_additionalOptions.TabStop = false;
             this.textBox_additionalOptions.Text = "$0";
             // 
             // textBox_subTotal
@@ -165,6 +179,7 @@ namespace assignment2_michealWalls
             this.textBox_subTotal.ReadOnly = true;
             this.textBox_subTotal.Size = new System.Drawing.Size(100, 20);
             this.textBox_subTotal.TabIndex = 5;
+            this.textBox_subTotal.TabStop = false;
             this.textBox_subTotal.Text = "$0";
             // 
             // textBox_salesTax
@@ -174,6 +189,7 @@ namespace assignment2_michealWalls
             this.textBox_salesTax.ReadOnly = true;
             this.textBox_salesTax.Size = new System.Drawing.Size(100, 20);
             this.textBox_salesTax.TabIndex = 6;
+            this.textBox_salesTax.TabStop = false;
             this.textBox_salesTax.Text = "$0";
             // 
             // textBox_total
@@ -183,6 +199,7 @@ namespace assignment2_michealWalls
             this.textBox_total.ReadOnly = true;
             this.textBox_total.Size = new System.Drawing.Size(100, 20);
             this.textBox_total.TabIndex = 7;
+            this.textBox_total.TabStop = false;
             this.textBox_total.Text = "$0";
             // 
             // textBox_amountDue
@@ -191,6 +208,7 @@ namespace assignment2_michealWalls
             this.textBox_amountDue.Name = "textBox_amountDue";
             this.textBox_amountDue.Size = new System.Drawing.Size(100, 20);
             this.textBox_amountDue.TabIndex = 8;
+            this.textBox_amountDue.TabStop = false;
             this.textBox_amountDue.Text = "$0";
             // 
             // label_additionalOptions
@@ -249,7 +267,8 @@ namespace assignment2_michealWalls
             this.tabControl_mainFlowControl.Name = "tabControl_mainFlowControl";
             this.tabControl_mainFlowControl.SelectedIndex = 0;
             this.tabControl_mainFlowControl.Size = new System.Drawing.Size(295, 344);
-            this.tabControl_mainFlowControl.TabIndex = 3;
+            this.tabControl_mainFlowControl.TabIndex = 300;
+            this.tabControl_mainFlowControl.TabStop = false;
             this.tabControl_mainFlowControl.SelectedIndexChanged += new System.EventHandler(this.tabPage_totals_OnFocus);
             // 
             // tabPage_start
@@ -279,10 +298,10 @@ namespace assignment2_michealWalls
             this.button_clearInput1.Location = new System.Drawing.Point(66, 289);
             this.button_clearInput1.Name = "button_clearInput1";
             this.button_clearInput1.Size = new System.Drawing.Size(75, 23);
-            this.button_clearInput1.TabIndex = 11;
+            this.button_clearInput1.TabIndex = 3;
             this.button_clearInput1.Text = "Clear";
             this.button_clearInput1.UseVisualStyleBackColor = true;
-            this.button_clearInput1.Click += new System.EventHandler(this.button_clearInput1_Click);
+            this.button_clearInput1.Click += new System.EventHandler(this.clearInputFields);
             // 
             // label_basePrice_gas
             // 
@@ -485,7 +504,7 @@ namespace assignment2_michealWalls
             this.button_tabControl_next2.Location = new System.Drawing.Point(206, 289);
             this.button_tabControl_next2.Name = "button_tabControl_next2";
             this.button_tabControl_next2.Size = new System.Drawing.Size(75, 23);
-            this.button_tabControl_next2.TabIndex = 1;
+            this.button_tabControl_next2.TabIndex = 2;
             this.button_tabControl_next2.Text = "Next";
             this.button_tabControl_next2.UseVisualStyleBackColor = true;
             this.button_tabControl_next2.Click += new System.EventHandler(this.button_tabControl_next2_Click);
@@ -495,19 +514,28 @@ namespace assignment2_michealWalls
             this.button_tabControl_back1.Location = new System.Drawing.Point(7, 289);
             this.button_tabControl_back1.Name = "button_tabControl_back1";
             this.button_tabControl_back1.Size = new System.Drawing.Size(75, 23);
-            this.button_tabControl_back1.TabIndex = 0;
+            this.button_tabControl_back1.TabIndex = 3;
             this.button_tabControl_back1.Text = "Back";
             this.button_tabControl_back1.UseVisualStyleBackColor = true;
             this.button_tabControl_back1.Click += new System.EventHandler(this.button_tabControl_back1_Click);
             // 
             // tabPage_accessories
             // 
-            this.tabPage_accessories.Controls.Add(this.label12);
-            this.tabPage_accessories.Controls.Add(this.label11);
-            this.tabPage_accessories.Controls.Add(this.label10);
-            this.tabPage_accessories.Controls.Add(this.label8);
-            this.tabPage_accessories.Controls.Add(this.label7);
-            this.tabPage_accessories.Controls.Add(this.label6);
+            this.tabPage_accessories.Controls.Add(this.label_accessories_sideSkirts_price);
+            this.tabPage_accessories.Controls.Add(this.label_accessories_chromePackage_price);
+            this.tabPage_accessories.Controls.Add(this.label_accessories_chromePackage_description);
+            this.tabPage_accessories.Controls.Add(this.label_accessories_frontSpoiler_price);
+            this.tabPage_accessories.Controls.Add(this.label_accessories_rearApron_price);
+            this.tabPage_accessories.Controls.Add(this.checkBox_accessories_sideSkirts);
+            this.tabPage_accessories.Controls.Add(this.checkBox_accessories_chromePackage);
+            this.tabPage_accessories.Controls.Add(this.checkBox_accessories_frontSpoiler);
+            this.tabPage_accessories.Controls.Add(this.checkBox_accessories_rearApron);
+            this.tabPage_accessories.Controls.Add(this.checkBox_accessories_sportExhaust);
+            this.tabPage_accessories.Controls.Add(this.checkBox_accessories_roofSpoiler);
+            this.tabPage_accessories.Controls.Add(this.checkBox_accessories_rearRack);
+            this.tabPage_accessories.Controls.Add(this.label_accessories_sportExhaust_price);
+            this.tabPage_accessories.Controls.Add(this.label_accessories_roofSpoiler_price);
+            this.tabPage_accessories.Controls.Add(this.label_accessories_rackPrice);
             this.tabPage_accessories.Controls.Add(this.button_tabControl_next3);
             this.tabPage_accessories.Controls.Add(this.button_tabControl_back2);
             this.tabPage_accessories.Location = new System.Drawing.Point(4, 22);
@@ -518,12 +546,161 @@ namespace assignment2_michealWalls
             this.tabPage_accessories.Text = "Accessories";
             this.tabPage_accessories.UseVisualStyleBackColor = true;
             // 
+            // label_accessories_sideSkirts_price
+            // 
+            this.label_accessories_sideSkirts_price.AutoSize = true;
+            this.label_accessories_sideSkirts_price.Location = new System.Drawing.Point(240, 215);
+            this.label_accessories_sideSkirts_price.Name = "label_accessories_sideSkirts_price";
+            this.label_accessories_sideSkirts_price.Size = new System.Drawing.Size(46, 13);
+            this.label_accessories_sideSkirts_price.TabIndex = 21;
+            this.label_accessories_sideSkirts_price.Text = "$750.00";
+            // 
+            // label_accessories_chromePackage_price
+            // 
+            this.label_accessories_chromePackage_price.AutoSize = true;
+            this.label_accessories_chromePackage_price.Location = new System.Drawing.Point(240, 168);
+            this.label_accessories_chromePackage_price.Name = "label_accessories_chromePackage_price";
+            this.label_accessories_chromePackage_price.Size = new System.Drawing.Size(46, 13);
+            this.label_accessories_chromePackage_price.TabIndex = 20;
+            this.label_accessories_chromePackage_price.Text = "$435.00";
+            // 
+            // label_accessories_chromePackage_description
+            // 
+            this.label_accessories_chromePackage_description.AutoSize = true;
+            this.label_accessories_chromePackage_description.Location = new System.Drawing.Point(36, 188);
+            this.label_accessories_chromePackage_description.Name = "label_accessories_chromePackage_description";
+            this.label_accessories_chromePackage_description.Size = new System.Drawing.Size(226, 13);
+            this.label_accessories_chromePackage_description.TabIndex = 19;
+            this.label_accessories_chromePackage_description.Text = "Mirror Caps, Radiator Grille and Rear Trim Strip";
+            // 
+            // label_accessories_frontSpoiler_price
+            // 
+            this.label_accessories_frontSpoiler_price.AutoSize = true;
+            this.label_accessories_frontSpoiler_price.Location = new System.Drawing.Point(241, 132);
+            this.label_accessories_frontSpoiler_price.Name = "label_accessories_frontSpoiler_price";
+            this.label_accessories_frontSpoiler_price.Size = new System.Drawing.Size(46, 13);
+            this.label_accessories_frontSpoiler_price.TabIndex = 18;
+            this.label_accessories_frontSpoiler_price.Text = "$470.00";
+            // 
+            // label_accessories_rearApron_price
+            // 
+            this.label_accessories_rearApron_price.AutoSize = true;
+            this.label_accessories_rearApron_price.Location = new System.Drawing.Point(241, 101);
+            this.label_accessories_rearApron_price.Name = "label_accessories_rearApron_price";
+            this.label_accessories_rearApron_price.Size = new System.Drawing.Size(46, 13);
+            this.label_accessories_rearApron_price.TabIndex = 17;
+            this.label_accessories_rearApron_price.Text = "$565.00";
+            // 
+            // checkBox_accessories_sideSkirts
+            // 
+            this.checkBox_accessories_sideSkirts.AutoSize = true;
+            this.checkBox_accessories_sideSkirts.Location = new System.Drawing.Point(7, 214);
+            this.checkBox_accessories_sideSkirts.Name = "checkBox_accessories_sideSkirts";
+            this.checkBox_accessories_sideSkirts.Size = new System.Drawing.Size(123, 17);
+            this.checkBox_accessories_sideSkirts.TabIndex = 6;
+            this.checkBox_accessories_sideSkirts.Text = "BARBUS Side Skirts";
+            this.checkBox_accessories_sideSkirts.UseVisualStyleBackColor = true;
+            this.checkBox_accessories_sideSkirts.CheckedChanged += new System.EventHandler(this.checkBox_accessories_sideSkirts_CheckedChanged);
+            // 
+            // checkBox_accessories_chromePackage
+            // 
+            this.checkBox_accessories_chromePackage.AutoSize = true;
+            this.checkBox_accessories_chromePackage.Location = new System.Drawing.Point(7, 168);
+            this.checkBox_accessories_chromePackage.Name = "checkBox_accessories_chromePackage";
+            this.checkBox_accessories_chromePackage.Size = new System.Drawing.Size(108, 17);
+            this.checkBox_accessories_chromePackage.TabIndex = 5;
+            this.checkBox_accessories_chromePackage.Text = "Chrome Package";
+            this.checkBox_accessories_chromePackage.UseVisualStyleBackColor = true;
+            this.checkBox_accessories_chromePackage.CheckedChanged += new System.EventHandler(this.checkBox_accessories_chromePackage_CheckedChanged);
+            // 
+            // checkBox_accessories_frontSpoiler
+            // 
+            this.checkBox_accessories_frontSpoiler.AutoSize = true;
+            this.checkBox_accessories_frontSpoiler.Location = new System.Drawing.Point(7, 132);
+            this.checkBox_accessories_frontSpoiler.Name = "checkBox_accessories_frontSpoiler";
+            this.checkBox_accessories_frontSpoiler.Size = new System.Drawing.Size(132, 17);
+            this.checkBox_accessories_frontSpoiler.TabIndex = 4;
+            this.checkBox_accessories_frontSpoiler.Text = "BARBUS Front Spoiler";
+            this.checkBox_accessories_frontSpoiler.UseVisualStyleBackColor = true;
+            this.checkBox_accessories_frontSpoiler.CheckedChanged += new System.EventHandler(this.checkBox_accessories_frontSpoiler_CheckedChanged);
+            // 
+            // checkBox_accessories_rearApron
+            // 
+            this.checkBox_accessories_rearApron.AutoSize = true;
+            this.checkBox_accessories_rearApron.Location = new System.Drawing.Point(6, 101);
+            this.checkBox_accessories_rearApron.Name = "checkBox_accessories_rearApron";
+            this.checkBox_accessories_rearApron.Size = new System.Drawing.Size(227, 17);
+            this.checkBox_accessories_rearApron.TabIndex = 3;
+            this.checkBox_accessories_rearApron.Text = "BARBUS Apron for Sports Exhaust System";
+            this.checkBox_accessories_rearApron.UseVisualStyleBackColor = true;
+            this.checkBox_accessories_rearApron.CheckedChanged += new System.EventHandler(this.checkBox_accessories_rearApron_CheckedChanged);
+            // 
+            // checkBox_accessories_sportExhaust
+            // 
+            this.checkBox_accessories_sportExhaust.AutoSize = true;
+            this.checkBox_accessories_sportExhaust.Location = new System.Drawing.Point(8, 71);
+            this.checkBox_accessories_sportExhaust.Name = "checkBox_accessories_sportExhaust";
+            this.checkBox_accessories_sportExhaust.Size = new System.Drawing.Size(181, 17);
+            this.checkBox_accessories_sportExhaust.TabIndex = 2;
+            this.checkBox_accessories_sportExhaust.Text = "BARBUS Sports Exhaust System";
+            this.checkBox_accessories_sportExhaust.UseVisualStyleBackColor = true;
+            this.checkBox_accessories_sportExhaust.CheckedChanged += new System.EventHandler(this.checkBox_accessories_sportExhaust_CheckedChanged);
+            // 
+            // checkBox_accessories_roofSpoiler
+            // 
+            this.checkBox_accessories_roofSpoiler.AutoSize = true;
+            this.checkBox_accessories_roofSpoiler.Location = new System.Drawing.Point(8, 39);
+            this.checkBox_accessories_roofSpoiler.Name = "checkBox_accessories_roofSpoiler";
+            this.checkBox_accessories_roofSpoiler.Size = new System.Drawing.Size(131, 17);
+            this.checkBox_accessories_roofSpoiler.TabIndex = 1;
+            this.checkBox_accessories_roofSpoiler.Text = "BARBUS Roof Spoiler";
+            this.checkBox_accessories_roofSpoiler.UseVisualStyleBackColor = true;
+            this.checkBox_accessories_roofSpoiler.CheckedChanged += new System.EventHandler(this.checkBox_accessories_roofSpoiler_CheckedChanged);
+            // 
+            // checkBox_accessories_rearRack
+            // 
+            this.checkBox_accessories_rearRack.AutoSize = true;
+            this.checkBox_accessories_rearRack.Location = new System.Drawing.Point(7, 7);
+            this.checkBox_accessories_rearRack.Name = "checkBox_accessories_rearRack";
+            this.checkBox_accessories_rearRack.Size = new System.Drawing.Size(159, 17);
+            this.checkBox_accessories_rearRack.TabIndex = 0;
+            this.checkBox_accessories_rearRack.Text = "Rear-mounted Rack System";
+            this.checkBox_accessories_rearRack.UseVisualStyleBackColor = true;
+            this.checkBox_accessories_rearRack.CheckedChanged += new System.EventHandler(this.checkBox_accessories_rearRack_CheckedChanged);
+            // 
+            // label_accessories_sportExhaust_price
+            // 
+            this.label_accessories_sportExhaust_price.AutoSize = true;
+            this.label_accessories_sportExhaust_price.Location = new System.Drawing.Point(232, 72);
+            this.label_accessories_sportExhaust_price.Name = "label_accessories_sportExhaust_price";
+            this.label_accessories_sportExhaust_price.Size = new System.Drawing.Size(55, 13);
+            this.label_accessories_sportExhaust_price.TabIndex = 9;
+            this.label_accessories_sportExhaust_price.Text = "$1,130.00";
+            // 
+            // label_accessories_roofSpoiler_price
+            // 
+            this.label_accessories_roofSpoiler_price.AutoSize = true;
+            this.label_accessories_roofSpoiler_price.Location = new System.Drawing.Point(240, 39);
+            this.label_accessories_roofSpoiler_price.Name = "label_accessories_roofSpoiler_price";
+            this.label_accessories_roofSpoiler_price.Size = new System.Drawing.Size(46, 13);
+            this.label_accessories_roofSpoiler_price.TabIndex = 8;
+            this.label_accessories_roofSpoiler_price.Text = "$375.00";
+            // 
+            // label_accessories_rackPrice
+            // 
+            this.label_accessories_rackPrice.AutoSize = true;
+            this.label_accessories_rackPrice.Location = new System.Drawing.Point(240, 7);
+            this.label_accessories_rackPrice.Name = "label_accessories_rackPrice";
+            this.label_accessories_rackPrice.Size = new System.Drawing.Size(46, 13);
+            this.label_accessories_rackPrice.TabIndex = 7;
+            this.label_accessories_rackPrice.Text = "$425.00";
+            // 
             // button_tabControl_next3
             // 
             this.button_tabControl_next3.Location = new System.Drawing.Point(206, 289);
             this.button_tabControl_next3.Name = "button_tabControl_next3";
             this.button_tabControl_next3.Size = new System.Drawing.Size(75, 23);
-            this.button_tabControl_next3.TabIndex = 3;
+            this.button_tabControl_next3.TabIndex = 7;
             this.button_tabControl_next3.Text = "Next";
             this.button_tabControl_next3.UseVisualStyleBackColor = true;
             this.button_tabControl_next3.Click += new System.EventHandler(this.button_tabControl_next3_Click);
@@ -533,7 +710,7 @@ namespace assignment2_michealWalls
             this.button_tabControl_back2.Location = new System.Drawing.Point(7, 289);
             this.button_tabControl_back2.Name = "button_tabControl_back2";
             this.button_tabControl_back2.Size = new System.Drawing.Size(75, 23);
-            this.button_tabControl_back2.TabIndex = 2;
+            this.button_tabControl_back2.TabIndex = 8;
             this.button_tabControl_back2.Text = "Back";
             this.button_tabControl_back2.UseVisualStyleBackColor = true;
             this.button_tabControl_back2.Click += new System.EventHandler(this.button_tabControl_back2_Click);
@@ -655,7 +832,7 @@ namespace assignment2_michealWalls
             this.checkBox_options_iPod.Location = new System.Drawing.Point(7, 243);
             this.checkBox_options_iPod.Name = "checkBox_options_iPod";
             this.checkBox_options_iPod.Size = new System.Drawing.Size(199, 17);
-            this.checkBox_options_iPod.TabIndex = 14;
+            this.checkBox_options_iPod.TabIndex = 5;
             this.checkBox_options_iPod.Text = "iPod integration for Bluetooth System";
             this.checkBox_options_iPod.UseVisualStyleBackColor = true;
             this.checkBox_options_iPod.CheckedChanged += new System.EventHandler(this.checkBox_options_iPod_CheckedChanged);
@@ -675,7 +852,7 @@ namespace assignment2_michealWalls
             this.checkBox_options_heatedSeats.Location = new System.Drawing.Point(7, 216);
             this.checkBox_options_heatedSeats.Name = "checkBox_options_heatedSeats";
             this.checkBox_options_heatedSeats.Size = new System.Drawing.Size(91, 17);
-            this.checkBox_options_heatedSeats.TabIndex = 12;
+            this.checkBox_options_heatedSeats.TabIndex = 5;
             this.checkBox_options_heatedSeats.Text = "Heated Seats";
             this.checkBox_options_heatedSeats.UseVisualStyleBackColor = true;
             this.checkBox_options_heatedSeats.CheckedChanged += new System.EventHandler(this.checkBox_options_heatedSeats_CheckedChanged);
@@ -686,7 +863,7 @@ namespace assignment2_michealWalls
             this.checkBox_options_runningLights.Location = new System.Drawing.Point(7, 188);
             this.checkBox_options_runningLights.Name = "checkBox_options_runningLights";
             this.checkBox_options_runningLights.Size = new System.Drawing.Size(162, 17);
-            this.checkBox_options_runningLights.TabIndex = 11;
+            this.checkBox_options_runningLights.TabIndex = 4;
             this.checkBox_options_runningLights.Text = "LED Daytime Running Lights";
             this.checkBox_options_runningLights.UseVisualStyleBackColor = true;
             this.checkBox_options_runningLights.CheckedChanged += new System.EventHandler(this.checkBox_options_runningLights_CheckedChanged);
@@ -697,7 +874,7 @@ namespace assignment2_michealWalls
             this.checkBox_options_surroundSystem.Location = new System.Drawing.Point(7, 107);
             this.checkBox_options_surroundSystem.Name = "checkBox_options_surroundSystem";
             this.checkBox_options_surroundSystem.Size = new System.Drawing.Size(170, 17);
-            this.checkBox_options_surroundSystem.TabIndex = 10;
+            this.checkBox_options_surroundSystem.TabIndex = 3;
             this.checkBox_options_surroundSystem.Text = "Smart Surround-Sound System";
             this.checkBox_options_surroundSystem.UseVisualStyleBackColor = true;
             this.checkBox_options_surroundSystem.CheckedChanged += new System.EventHandler(this.checkBox_options_surroundSystem_CheckedChanged);
@@ -708,7 +885,7 @@ namespace assignment2_michealWalls
             this.checkBox_options_touchScreen.Location = new System.Drawing.Point(7, 80);
             this.checkBox_options_touchScreen.Name = "checkBox_options_touchScreen";
             this.checkBox_options_touchScreen.Size = new System.Drawing.Size(179, 17);
-            this.checkBox_options_touchScreen.TabIndex = 9;
+            this.checkBox_options_touchScreen.TabIndex = 2;
             this.checkBox_options_touchScreen.Text = "Touchscreen Multimedia System";
             this.checkBox_options_touchScreen.UseVisualStyleBackColor = true;
             this.checkBox_options_touchScreen.CheckedChanged += new System.EventHandler(this.checkBox_options_touchScreen_CheckedChanged);
@@ -719,7 +896,7 @@ namespace assignment2_michealWalls
             this.checkBox_options_bluetoothPackage.Location = new System.Drawing.Point(7, 31);
             this.checkBox_options_bluetoothPackage.Name = "checkBox_options_bluetoothPackage";
             this.checkBox_options_bluetoothPackage.Size = new System.Drawing.Size(117, 17);
-            this.checkBox_options_bluetoothPackage.TabIndex = 8;
+            this.checkBox_options_bluetoothPackage.TabIndex = 1;
             this.checkBox_options_bluetoothPackage.Text = "Bluetooth Package";
             this.checkBox_options_bluetoothPackage.UseVisualStyleBackColor = true;
             this.checkBox_options_bluetoothPackage.CheckedChanged += new System.EventHandler(this.checkBox_options_bluetoothPackage_CheckedChanged);
@@ -739,7 +916,7 @@ namespace assignment2_michealWalls
             this.checkBox_options_centreConsole.Location = new System.Drawing.Point(7, 7);
             this.checkBox_options_centreConsole.Name = "checkBox_options_centreConsole";
             this.checkBox_options_centreConsole.Size = new System.Drawing.Size(159, 17);
-            this.checkBox_options_centreConsole.TabIndex = 6;
+            this.checkBox_options_centreConsole.TabIndex = 0;
             this.checkBox_options_centreConsole.Text = "Centre Console Storage Box";
             this.checkBox_options_centreConsole.UseVisualStyleBackColor = true;
             this.checkBox_options_centreConsole.CheckedChanged += new System.EventHandler(this.checkBox_options_centreConsole_CheckedChanged);
@@ -749,23 +926,24 @@ namespace assignment2_michealWalls
             this.button_tabControl_next4.Location = new System.Drawing.Point(206, 289);
             this.button_tabControl_next4.Name = "button_tabControl_next4";
             this.button_tabControl_next4.Size = new System.Drawing.Size(75, 23);
-            this.button_tabControl_next4.TabIndex = 5;
+            this.button_tabControl_next4.TabIndex = 7;
             this.button_tabControl_next4.Text = "Calculate";
             this.button_tabControl_next4.UseVisualStyleBackColor = true;
-            this.button_tabControl_next4.Click += new System.EventHandler(this.button_tabControl_next4_Click);
+            this.button_tabControl_next4.Click += new System.EventHandler(this.calculateTotals_sharedHandler);
             // 
             // button_tabControl_back3
             // 
             this.button_tabControl_back3.Location = new System.Drawing.Point(7, 289);
             this.button_tabControl_back3.Name = "button_tabControl_back3";
             this.button_tabControl_back3.Size = new System.Drawing.Size(75, 23);
-            this.button_tabControl_back3.TabIndex = 4;
+            this.button_tabControl_back3.TabIndex = 8;
             this.button_tabControl_back3.Text = "Back";
             this.button_tabControl_back3.UseVisualStyleBackColor = true;
             this.button_tabControl_back3.Click += new System.EventHandler(this.button_tabControl_back3_Click);
             // 
             // tabPage_totals
             // 
+            this.tabPage_totals.Controls.Add(this.pictureBox_total);
             this.tabPage_totals.Controls.Add(this.button_clearInput2);
             this.tabPage_totals.Controls.Add(this.button_tabControl_back4);
             this.tabPage_totals.Controls.Add(this.textBox_subTotal);
@@ -786,22 +964,32 @@ namespace assignment2_michealWalls
             this.tabPage_totals.Text = "Total";
             this.tabPage_totals.UseVisualStyleBackColor = true;
             // 
+            // pictureBox_total
+            // 
+            this.pictureBox_total.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox_total.Location = new System.Drawing.Point(92, 25);
+            this.pictureBox_total.Name = "pictureBox_total";
+            this.pictureBox_total.Size = new System.Drawing.Size(100, 67);
+            this.pictureBox_total.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_total.TabIndex = 16;
+            this.pictureBox_total.TabStop = false;
+            // 
             // button_clearInput2
             // 
             this.button_clearInput2.Location = new System.Drawing.Point(62, 289);
             this.button_clearInput2.Name = "button_clearInput2";
             this.button_clearInput2.Size = new System.Drawing.Size(75, 23);
-            this.button_clearInput2.TabIndex = 15;
+            this.button_clearInput2.TabIndex = 1;
             this.button_clearInput2.Text = "Clear";
             this.button_clearInput2.UseVisualStyleBackColor = true;
-            this.button_clearInput2.Click += new System.EventHandler(this.button_clearInput2_Click);
+            this.button_clearInput2.Click += new System.EventHandler(this.clearInputFields);
             // 
             // button_tabControl_back4
             // 
             this.button_tabControl_back4.Location = new System.Drawing.Point(143, 289);
             this.button_tabControl_back4.Name = "button_tabControl_back4";
             this.button_tabControl_back4.Size = new System.Drawing.Size(75, 23);
-            this.button_tabControl_back4.TabIndex = 14;
+            this.button_tabControl_back4.TabIndex = 0;
             this.button_tabControl_back4.Text = "Back";
             this.button_tabControl_back4.UseVisualStyleBackColor = true;
             this.button_tabControl_back4.Click += new System.EventHandler(this.button_tabControl_back4_Click);
@@ -824,14 +1012,14 @@ namespace assignment2_michealWalls
             this.stripMenu_file.Name = "stripMenu_file";
             this.stripMenu_file.ShowShortcutKeys = false;
             this.stripMenu_file.Size = new System.Drawing.Size(37, 20);
-            this.stripMenu_file.Text = "&File";
+            this.stripMenu_file.Text = "File";
             // 
             // stripMenu_file_exit
             // 
             this.stripMenu_file_exit.Name = "stripMenu_file_exit";
             this.stripMenu_file_exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.stripMenu_file_exit.Size = new System.Drawing.Size(131, 22);
-            this.stripMenu_file_exit.Text = "E&xit";
+            this.stripMenu_file_exit.Size = new System.Drawing.Size(152, 22);
+            this.stripMenu_file_exit.Text = "Exit";
             this.stripMenu_file_exit.Click += new System.EventHandler(this.stripMenuItem_fileExit_Click);
             // 
             // stripMenu_edit
@@ -852,7 +1040,7 @@ namespace assignment2_michealWalls
             this.stripMenu_edit_clear.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Delete)));
             this.stripMenu_edit_clear.Size = new System.Drawing.Size(179, 22);
             this.stripMenu_edit_clear.Text = "Clear...";
-            this.stripMenu_edit_clear.Click += new System.EventHandler(this.stripMenu_edit_clear_Click);
+            this.stripMenu_edit_clear.Click += new System.EventHandler(this.clearInputFields);
             // 
             // stripMenu_edit_calculate
             // 
@@ -860,7 +1048,7 @@ namespace assignment2_michealWalls
             this.stripMenu_edit_calculate.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
             this.stripMenu_edit_calculate.Size = new System.Drawing.Size(179, 22);
             this.stripMenu_edit_calculate.Text = "Calculate...";
-            this.stripMenu_edit_calculate.Click += new System.EventHandler(this.stripMenu_edit_calculate_Click);
+            this.stripMenu_edit_calculate.Click += new System.EventHandler(this.calculateTotals_sharedHandler);
             // 
             // stripMenu_edit_colour
             // 
@@ -931,60 +1119,6 @@ namespace assignment2_michealWalls
             this.label_appTagline.TabIndex = 19;
             this.label_appTagline.Text = "Design your own Smart Car!";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "label6";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 39);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 71);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "label8";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(240, 7);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "label10";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(240, 39);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "label11";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(240, 71);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "label12";
-            // 
             // Form_MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1013,6 +1147,7 @@ namespace assignment2_michealWalls
             this.tabPage_options.PerformLayout();
             this.tabPage_totals.ResumeLayout(false);
             this.tabPage_totals.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_total)).EndInit();
             this.stripMenu.ResumeLayout(false);
             this.stripMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1099,12 +1234,22 @@ namespace assignment2_michealWalls
         private System.Windows.Forms.Label label_options_heatedSeats_price;
         private System.Windows.Forms.Label label_options_runningLights_price;
         private System.Windows.Forms.Label label_options_surroundSystem_price;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label_accessories_sportExhaust_price;
+        private System.Windows.Forms.Label label_accessories_roofSpoiler_price;
+        private System.Windows.Forms.Label label_accessories_rackPrice;
+        private System.Windows.Forms.CheckBox checkBox_accessories_sideSkirts;
+        private System.Windows.Forms.CheckBox checkBox_accessories_chromePackage;
+        private System.Windows.Forms.CheckBox checkBox_accessories_frontSpoiler;
+        private System.Windows.Forms.CheckBox checkBox_accessories_rearApron;
+        private System.Windows.Forms.CheckBox checkBox_accessories_sportExhaust;
+        private System.Windows.Forms.CheckBox checkBox_accessories_roofSpoiler;
+        private System.Windows.Forms.CheckBox checkBox_accessories_rearRack;
+        private System.Windows.Forms.Label label_accessories_rearApron_price;
+        private System.Windows.Forms.Label label_accessories_frontSpoiler_price;
+        private System.Windows.Forms.Label label_accessories_chromePackage_price;
+        private System.Windows.Forms.Label label_accessories_chromePackage_description;
+        private System.Windows.Forms.Label label_accessories_sideSkirts_price;
+        private System.Windows.Forms.PictureBox pictureBox_total;
     }
 }
 
